@@ -1,0 +1,57 @@
+<meta charset="UTF-8">
+
+<input/>
+<button>Verificar número</button>
+<script>
+
+function sorteia() {
+  return Math.round(Math.random()*10)
+}
+
+function sorteiaNum(quantidade){
+  var numeros = []
+  var numero = 1
+  while (numero<=quantidade){
+    var numeroRandom = sorteia()
+    var achou = false
+    for (var posicao = 0;posicao<numeros.length;posicao++){
+      if(numeros[posicao==numeroRandom])
+        achou =true;
+      break
+    }
+
+    if (achou == false) {
+      numeros.push (numeroRandom)
+      numero ++
+    }
+     
+  
+  }
+  return numeros
+}
+
+  var numeros = sorteiaNum(2);
+  console.log (numeros)
+
+  var input = document.querySelector("input");
+  input.focus();
+  function verifica(){
+    var achou = false
+    for(var posicao = 0;posicao<numeros.length;posicao++){
+  	if (input.value==numeros[posicao]){
+  		alert("acertou");
+        achou = true;
+        break;
+  		}
+    }
+    if(achou ==false){
+    alert("errou");
+     
+  	} 
+  }
+   
+var button = document.querySelector ("button");
+button.onclick = verifica;
+ input.value = "";
+      input.focus();
+</script>
